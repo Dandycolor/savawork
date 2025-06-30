@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saveliy Bobov - Lead Product Designer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            min-height: 100vh;
+        }
+
+        .header {
+            padding: 40px 60px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .header .title {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .header .intro {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #444;
+        }
+
+        .section {
+            padding: 40px 60px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #000;
+        }
+
+        .job {
+            display: grid;
+            grid-template-columns: 1fr 120px;
+            gap: 40px;
+            margin-bottom: 40px;
+            align-items: start;
+        }
+
+        .job:last-child {
+            margin-bottom: 0;
+        }
+
+        .job-content h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .job-content .company {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .job-content .description {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 16px;
+            font-style: italic;
+        }
+
+        .job-content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .job-content li {
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 0;
+        }
+
+        .job-content li:before {
+            content: "•";
+            color: #666;
+            margin-right: 8px;
+        }
+
+        .job-period {
+            text-align: right;
+            font-size: 14px;
+            color: #666;
+            white-space: nowrap;
+        }
+
+
+
+        .clients {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .clients h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .clients p {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        .skill-category h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .skill-category ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .skill-category li {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 12px;
+        }
+
+        .skill-category li:before {
+            content: "·";
+            position: absolute;
+            left: 0;
+            color: #999;
+        }
+
+        .education-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .education-item h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .education-item p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .tools {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        .footer {
+            padding: 40px 60px;
+            background: #f8f9fa;
+            text-align: center;
+        }
+
+        .contact-info {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        .contact-links a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        .contact-links a:hover {
+            background: #f0f0f0;
+            color: #000;
+        }
+
+
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 0;
+            }
+            
+            .header, .section, .footer {
+                padding: 30px 20px;
+            }
+            
+            .job {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .job-period {
+                text-align: left;
+            }
+            
+            .skills-grid, .education-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Saveliy Bobov, 36 years old</h1>
+            <div class="title">Lead Product Designer</div>
+            <div class="intro">
+                Lead Product Designer with 16+ years of experience, creating user-centered solutions for 75+ million clients of a fintech company with a 20-year history. My goal is to find elegant, visually expressive, and intuitively convenient solutions based on brand strategy. I build and develop design teams, serve as a lecturer and mentor for young designers.
+            </div>
+        </header>
+
+        <section class="section">
+            <h2 class="section-title">Product Experience</h2>
+            
+            <div class="job">
+                <div class="job-content">
+                    <h3>Design Direction Lead</h3>
+                    <div class="company">YuMoney</div>
+                    <div class="description">B2C Banking applications for 75+ million clients</div>
+                    <ul>
+                        <li>Relaunched B2C visual language. Creation and testing of hypotheses for product growth: Together with the product team, formulated and tested hypotheses for current features and new products within the new strategy.</li>
+                        <li>Close collaboration with PO, UX researchers, and technical leads: Built effective cross-functional collaboration to synchronize goals and tasks, from concepts to MVP implementation.</li>
+                        <li>Developed and visualized product ideas, ensuring their alignment at all levels.</li>
+                        <li>Usability testing: hypotheses, concept prototypes, usability testing sessions.</li>
+                        <li>Mentorship and work on competency matrix in the design department.</li>
+                    </ul>
+                </div>
+                <div class="job-period">2022 - Present</div>
+            </div>
+
+            <div class="job">
+                <div class="job-content">
+                    <h3>Lead Product Designer</h3>
+                    <div class="company">Yandex</div>
+                    <ul>
+                        <li>Designed partner payment projects for X5 Group, Stoloto, Webbankir, BKS. Created and conceptualized exclusive products for YuMoney and CD Project Red (Witcher, Cyberpunk 2077 games).</li>
+                        <li>User research and work with stakeholders and partners.</li>
+                        <li>Visual concepts for all digital products of partners and concept approval.</li>
+                        <li>Creating projects with NSPK within the framework of payment standards implementation.</li>
+                        <li>Hiring and developing new designers.</li>
+                    </ul>
+                </div>
+                <div class="job-period">2020-2022</div>
+            </div>
+
+            <div class="job">
+                <div class="job-content">
+                    <h3>Lead Mobile Product Designer</h3>
+                    <div class="company">Yandex Money</div>
+                    <div class="description">B2B / B2C Banking systems for 60+ million clients</div>
+                    <ul>
+                        <li>Developed and implemented modular architecture for all main Wallet app functions such as "Transfers and Payments," "Cards," "Authorization," ensuring scalability and interface consistency within the mobile product redesign concept.</li>
+                        <li>Work with product team, UX researchers, and technical leads.</li>
+                        <li>Concept validation through user testing practices.</li>
+                        <li>Formulated and defended design concept for applications.</li>
+                        <li>Created and developed a 5-person app design team, working on growth and mentorship within the team.</li>
+                    </ul>
+                </div>
+                <div class="job-period">2018–2020</div>
+            </div>
+
+            <div class="job">
+                <div class="job-content">
+                    <h3>Senior Product Designer</h3>
+                    <div class="company">Yandex Money</div>
+                    <ul>
+                        <li>Developed a global payment system for the Yandex ecosystem with the team</li>
+                        <li>User interface design.</li>
+                        <li>Analytics work and task prioritization: Used metrics and conversion data to determine priorities, enabling targeted feature development management and accelerating key business indicators growth and improving UX consistency.</li>
+                        <li>Design system creation and scaling: iOS, Android</li>
+                        <li>Contribution to Yandex development and design system: Yandex BEM, Whitepaper</li>
+                    </ul>
+                </div>
+                <div class="job-period">2015–2018</div>
+            </div>
+
+            <div class="job">
+                <div class="job-content">
+                    <h3>Senior User Experience Consultant</h3>
+                    <div class="company">Xiaomi Global</div>
+                    <div class="description">Chinese technology and digital products manufacturer</div>
+                    <ul>
+                        <li>Consulted the main interface team on UI adaptation processes for the Russian market.</li>
+                        <li>Mi Fitness language module concept</li>
+                        <li>MIUI typography and component adaptation for Cyrillic</li>
+                        <li>Revision of marketing strategy in Russia</li>
+                    </ul>
+                </div>
+                <div class="job-period">2014–2015</div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Agency Work</h2>
+            
+            <div class="job">
+                <div class="job-content">
+                    <h3>Senior Creative Director, Graphic Designer</h3>
+                    <div class="company">Casper</div>
+                    <div class="description">Outsourcing design agency</div>
+                    <ul>
+                        <li>Design tenders and outsourcing for government, museums, and design studios</li>
+                        <li>Interactive product concepts for Erarta Museum, Hermitage</li>
+                        <li>Web portals</li>
+                        <li>Print materials</li>
+                    </ul>
+                </div>
+                <div class="job-period">2013–2015</div>
+            </div>
+
+            <div class="job">
+                <div class="job-content">
+                    <h3>Graphic Designer, UX Designer</h3>
+                    <div class="company">The Phantoms</div>
+                    <div class="description">Top 10 design studios in St. Petersburg</div>
+                    <ul>
+                        <li>Worked in a small design studio with clients and collaborated with agencies such as Oblako, Shishki.</li>
+                        <li>User interface design concepts</li>
+                        <li>Branding, graphic design</li>
+                        <li>Logos, icon design</li>
+                    </ul>
+                </div>
+                <div class="job-period">2008–2012</div>
+            </div>
+
+            <div class="clients">
+                <h4>Project clients included:</h4>
+                <p>Yota · Xiaomi · Morgan Stanley · Yulmart · Erarta Museum · Hermitage · Gazprom Neft · Pizza Hut · Yandex · Bork · Casio · Sportmaster · Petrovich · Ministry of Justice of the Russian Federation · Beefree · Obit Group</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Hard Skills</h4>
+                    <ul>
+                        <li>User research</li>
+                        <li>Interviews</li>
+                        <li>Information architecture</li>
+                        <li>Wireframing</li>
+                        <li>Prototyping</li>
+                        <li>Mobile/web UI</li>
+                        <li>Interaction design</li>
+                        <li>Animation</li>
+                        <li>Usability testing</li>
+                        <li>Typography</li>
+                        <li>Identity design</li>
+                        <li>Icon design</li>
+                        <li>UI kits</li>
+                        <li>Design systems</li>
+                        <li>Analytics</li>
+                        <li>Frontend development</li>
+                        <li>Swift UI</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>Soft Skills</h4>
+                    <ul>
+                        <li>Critical thinking</li>
+                        <li>Management</li>
+                        <li>Teamwork</li>
+                        <li>User empathy</li>
+                        <li>Product strategy</li>
+                        <li>Communication</li>
+                    </ul>
+                    <p style="margin-top: 20px; font-size: 14px; color: #666;">
+                        • Mentor for designers at Yandex Practicum<br>
+                        • Art director for special projects for several St. Petersburg agencies
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Tools</h2>
+            <div class="tools">
+                <strong>Design & Prototyping:</strong> Figma · Sketch · Protopie · Principle<br>
+                <strong>Creative Suite:</strong> After Effects · Photoshop · Illustrator · InDesign<br>
+                <strong>Project Management:</strong> Jira · Keynote<br>
+                <strong>Specialized:</strong> Game development tools / 3D<br><br>
+                <em>And much more - these are just tools, after all</em>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Education and Awards</h2>
+            <div class="education-grid">
+                <div>
+                    <div class="education-item">
+                        <h4>St. Petersburg Academy of Arts and Industry, Stieglitz</h4>
+                        <p>(Arts and Design)</p>
+                    </div>
+                    <div class="education-item" style="margin-top: 20px;">
+                        <h4>IMOP Polytech</h4>
+                        <p>(Interaction Design)</p>
+                    </div>
+                    <div class="education-item" style="margin-top: 20px;">
+                        <h4>Yandex Design School</h4>
+                        <p>(Product Design)</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="education-item">
+                        <h4>Professional memberships:</h4>
+                        <p>Union of Designers of Russia<br>
+                        Union of Artists of Russia<br>
+                        Union of Artists of Moscow</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="contact-links">
+                <a href="https://t.me/saveliy" target="_blank">Telegram</a>
+                <a href="https://ru.linkedin.com/in/savawork" target="_blank">LinkedIn</a>
+                <a href="https://www.instagram.com/dandycolor/" target="_blank">Instagram</a>
+                <a href="https://unsplash.com/@dandycolor" target="_blank">Unsplash</a>
+            </div>
+            <div class="contact-info">
+                Living and working in St. Petersburg, Russia
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
