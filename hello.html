@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>sava.work/hello</title>
+  <style>
+:root {
+  --bg: #fafaf9;
+  --ink: #1c1917;
+  --ink-soft: #44403c;
+  --muted: #78716c;
+  --muted-2: #a8a29e;
+  --hair: #e7e5e4;
+  --card: #ffffff;
+  --accent: oklch(0.55 0.12 310);
+  --accent-soft: oklch(0.55 0.12 310 / 0.15);
+  --font-sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0; padding: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--hair);
+  transition: border-color 180ms ease, color 180ms ease;
+}
+a:hover { border-bottom-color: var(--ink); }
+
+.page { max-width: 620px; margin: 0 auto; padding: 96px 32px 128px; }
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.rise { animation: rise 500ms cubic-bezier(.2,.7,.2,1) both; }
+.rise-1 { animation-delay: 60ms; }
+.rise-2 { animation-delay: 140ms; }
+
+.list { display: flex; flex-direction: column; gap: 12px; margin: 0 -12px; }
+.list-row {
+  display: block; padding: 10px 12px; border-radius: 6px;
+  border: none; text-decoration: none; color: inherit;
+  transition: background-color 140ms ease;
+}
+.list-row:hover { background: #f1efed; border: none; }
+.list-row .lr-title { font-weight: 500; font-size: 15px; color: var(--ink); line-height: 1.35; }
+.list-row .lr-sub { color: var(--muted); font-size: 15px; line-height: 1.4; margin-top: 2px; }
+
+.hello-page { max-width: 520px; padding-top: 80px; }
+.hello-head { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+.hello-name { font-weight: 400; font-size: 15px; font-family: Inter, var(--font-sans); letter-spacing: -0.01em; }
+.hello-role { color: var(--muted); font-size: 15px; }
+.hello-bio {
+  color: var(--ink-soft);
+  font-size: 17px;
+  line-height: 1.5;
+  max-width: 440px;
+  margin-top: 16px;
+}
+.hello-list { margin-top: 40px; }
+.hello-footer {
+  margin-top: 64px;
+  padding-top: 24px;
+  border-top: 1px solid var(--hair);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--muted);
+  font-size: 13px;
+}
+.hello-footer a { border: none; color: var(--muted); }
+.hello-footer a:hover { color: var(--ink); }
+
+.lang-toggle {
+  display: inline-flex; align-items: baseline;
+  font-size: 13px; font-family: var(--font-mono); letter-spacing: 0.02em; color: var(--muted-2);
+}
+.lang-toggle button {
+  appearance: none; -webkit-appearance: none;
+  border: none; background: transparent; padding: 2px 6px; margin: 0;
+  color: var(--muted-2); cursor: pointer; font: inherit; text-transform: lowercase;
+  transition: color 160ms ease; border-radius: 3px;
+}
+.lang-toggle button:hover { color: var(--ink-soft); }
+.lang-toggle button.active { color: var(--ink); }
+.lang-toggle .sep { color: var(--muted-2); user-select: none; opacity: 0.6; }
+
+@media (max-width: 640px) {
+  .page { padding: 64px 22px 96px; }
+}
+  </style>
+</head>
+<body>
+  <main class="page hello-page">
+    <section class="hello-head rise rise-1">
+      <div>
+        <div class="hello-name" data-i18n="name">Savelii Bobov</div>
+        <div class="hello-role" data-i18n="role">Creative Director &amp; Product Designer</div>
+      </div>
+      <p class="hello-bio" data-i18n="hello-bio">
+        Hey — here are the places I live online. Tap anything below.
+      </p>
+    </section>
+
+    <section class="rise rise-2 hello-list">
+      <div class="list">
+        <a href="https://t.me/saveliy" target="_blank" rel="noopener" class="list-row">
+          <div class="lr-title">Telegram</div>
+          <div class="lr-sub" data-i18n="hl-tg">@saveliy — personal channel</div>
+        </a>
+        <a href="https://instagram.com/dandycolor" target="_blank" rel="noopener" class="list-row">
+          <div class="lr-title">Instagram — dandycolor</div>
+          <div class="lr-sub" data-i18n="hl-ig">Visual diary, mostly color studies</div>
+        </a>
+        <a href="https://unsplash.com/@dandycolor" target="_blank" rel="noopener" class="list-row">
+          <div class="lr-title" data-i18n="hl-un-t">Unsplash portfolio</div>
+          <div class="lr-sub" data-i18n="hl-un-s">Free-to-use photography</div>
+        </a>
+        <a href="https://practicum.yandex.ru" target="_blank" rel="noopener" class="list-row">
+          <div class="lr-title" data-i18n="hl-mn-t">Mentorship — Yandex Practicum</div>
+          <div class="lr-sub" data-i18n="hl-mn-s">Sessions for product designers</div>
+        </a>
+        <a href="https://www.slapdash.page/" target="_blank" rel="noopener" class="list-row">
+          <div class="lr-title">Slapdash</div>
+          <div class="lr-sub" data-i18n="hl-sd-s">Vibe-coded apps. Shipped with reckless confidence.</div>
+        </a>
+      </div>
+    </section>
+
+    <div class="hello-footer">
+      <a href="index.html">← sava.work</a>
+      <span class="lang-toggle" id="langToggle" role="tablist" aria-label="Language">
+        <button type="button" data-lang="en" class="active">en</button>
+        <span class="sep">/</span>
+        <button type="button" data-lang="ru">ru</button>
+      </span>
+    </div>
+  </main>
+
+  <script>
+    const I18N = {
+      en: {
+        "name": "Savelii Bobov",
+        "role": "Creative Director & Product Designer",
+        "hello-bio": "Hey — here are the places I live online. Tap anything below.",
+        "hl-tg": "@saveliy — personal channel",
+        "hl-ig": "Visual diary, mostly color studies",
+        "hl-un-t": "Unsplash portfolio",
+        "hl-un-s": "Free-to-use photography",
+        "hl-mn-t": "Mentorship — Yandex Practicum",
+        "hl-mn-s": "Sessions for product designers",
+        "hl-sd-s": "Vibe-coded apps. Shipped with reckless confidence.",
+      },
+      ru: {
+        "name": "Савелий Бобов",
+        "role": "Креативный директор и продуктовый дизайнер",
+        "hello-bio": "Привет. Короткий список мест, где меня можно найти в сети — жмите на любое.",
+        "hl-tg": "@saveliy — личный канал",
+        "hl-ig": "Визуальный дневник — в основном цветовые этюды",
+        "hl-un-t": "Портфолио на Unsplash",
+        "hl-un-s": "Фотографии со свободной лицензией",
+        "hl-mn-t": "Менторство — Яндекс Практикум",
+        "hl-mn-s": "Сессии для продуктовых дизайнеров",
+        "hl-sd-s": "Вайб-кодедные приложения. Сделаны на одном дыхании.",
+      }
+    };
+
+    function setLang(lang) {
+      const dict = I18N[lang] || I18N.en;
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const k = el.getAttribute('data-i18n');
+        if (dict[k] != null) el.textContent = dict[k];
+      });
+      document.querySelectorAll('#langToggle button').forEach(b => {
+        b.classList.toggle('active', b.dataset.lang === lang);
+      });
+      localStorage.setItem('savawork.lang', lang);
+    }
+
+    document.getElementById('langToggle').addEventListener('click', (e) => {
+      const b = e.target.closest('button'); if (!b) return;
+      setLang(b.dataset.lang);
+    });
+
+    const _saved = localStorage.getItem('savawork.lang');
+    setLang(_saved === 'ru' ? 'ru' : 'en');
+  </script>
+
+</body></html>

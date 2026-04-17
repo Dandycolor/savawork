@@ -1,492 +1,328 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saveliy Bobov - Lead Product Designer</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Saveliy Bobov — Creative Director &amp; Product Designer</title>
+  <style>
+:root {
+  --bg: #fafaf9;
+  --ink: #1c1917;
+  --ink-soft: #44403c;
+  --muted: #78716c;
+  --muted-2: #a8a29e;
+  --hair: #e7e5e4;
+  --card: #ffffff;
+  --accent: oklch(0.55 0.12 310);
+  --accent-soft: oklch(0.55 0.12 310 / 0.15);
+  --font-sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+}
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #f8f9fa;
-        }
+* { box-sizing: border-box; }
+:is(h1, h2) { font-weight: 500; }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            min-height: 100vh;
-        }
+html, body {
+  margin: 0; padding: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
 
-        .header {
-            padding: 40px 60px;
-            border-bottom: 1px solid #e9ecef;
-        }
+a {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--hair);
+  transition: border-color 180ms ease, color 180ms ease;
+}
+a:hover { border-bottom-color: var(--ink); }
 
-        .header h1 {
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
+.link-accent { border-bottom-color: var(--accent-soft); }
+.link-accent:hover { border-bottom-color: var(--accent); color: var(--accent); }
 
-        .header .title {
-            font-size: 18px;
-            color: #666;
-            margin-bottom: 30px;
-        }
+.em-serif { font-style: normal; font-weight: 600; }
 
-        .header .intro {
-            font-size: 16px;
-            line-height: 1.7;
-            color: #444;
-        }
+.page { max-width: 620px; margin: 0 auto; padding: 96px 32px 128px; }
 
-        .section {
-            padding: 40px 60px;
-            border-bottom: 1px solid #e9ecef;
-        }
+.section-label {
+  font-size: 15px; font-weight: 500; color: var(--ink);
+  margin: 0 0 20px; letter-spacing: -0.005em;
+}
 
-        .section:last-child {
-            border-bottom: none;
-        }
+.stack-xl { margin-top: 72px; }
 
-        .section-title {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 30px;
-            color: #000;
-        }
+p { margin: 0 0 16px; color: var(--ink-soft); }
+p:last-child { margin-bottom: 0; }
 
-        .job {
-            display: grid;
-            grid-template-columns: 1fr 120px;
-            gap: 40px;
-            margin-bottom: 40px;
-            align-items: start;
-        }
+@keyframes rise {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.rise { animation: rise 500ms cubic-bezier(.2,.7,.2,1) both; }
+.rise-1 { animation-delay: 60ms; }
+.rise-2 { animation-delay: 140ms; }
+.rise-3 { animation-delay: 220ms; }
+.rise-4 { animation-delay: 300ms; }
+.rise-5 { animation-delay: 380ms; }
 
-        .job:last-child {
-            margin-bottom: 0;
-        }
+.list { display: flex; flex-direction: column; gap: 12px; margin: 0 -12px; }
+.list-row {
+  display: block; padding: 10px 12px; border-radius: 6px;
+  border: none; text-decoration: none; color: inherit;
+  transition: background-color 140ms ease;
+}
+.list-row:hover { background: #f1efed; border: none; }
+.list-row .lr-title { font-weight: 500; font-size: 15px; color: var(--ink); line-height: 1.35; }
+.list-row .lr-sub { color: var(--muted); font-size: 15px; line-height: 1.4; margin-top: 2px; }
+.list-row .lr-meta { color: var(--muted); font-size: 14px; margin-top: 2px; }
 
-        .job-content h3 {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
+.hero { display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: start; }
+.hero-name {
+  font-family: Inter, var(--font-sans); font-weight: 500; font-size: 15px;
+  letter-spacing: -0.01em; line-height: 1.2; margin: 0; color: var(--ink);
+}
+.hero-role { color: var(--muted); font-size: 15px; margin-top: 2px; letter-spacing: -0.005em; }
 
-        .job-content .company {
-            font-size: 16px;
-            color: #666;
-            margin-bottom: 8px;
-        }
+.hero-statement {
+  margin-top: 0;
+  font-size: clamp(22px, 2.6vw, 28px);
+  line-height: 1.35; letter-spacing: -0.02em;
+  color: var(--ink); font-weight: 500; text-wrap: pretty; max-width: 640px;
+}
+.hero-statement a { font-weight: 500; color: var(--ink); border-bottom: 1px solid var(--accent); }
+.hero-statement a:hover { color: var(--accent); }
 
-        .job-content .description {
-            font-size: 14px;
-            color: #888;
-            margin-bottom: 16px;
-            font-style: italic;
-        }
+.hero-meta { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 8px 6px; font-size: 13px; }
+.hero-pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 10px; border-radius: 999px; background: #f5f5f4;
+  color: var(--ink-soft); border: 1px solid transparent;
+  transition: border-color 140ms, background 140ms;
+}
+.hero-pill:hover { border-color: var(--hair); background: var(--card); color: var(--ink); }
+.hero-pill .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
 
-        .job-content ul {
-            list-style: none;
-            padding: 0;
-        }
+.footer-note {
+  margin-top: 96px; padding-top: 24px; border-top: 1px solid var(--hair);
+  color: var(--muted); font-size: 13px;
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+}
 
-        .job-content li {
-            font-size: 15px;
-            line-height: 1.6;
-            margin-bottom: 12px;
-            position: relative;
-            padding-left: 0;
-        }
+.lang-toggle {
+  display: inline-flex; align-items: baseline;
+  font-size: 13px; font-family: var(--font-mono); letter-spacing: 0.02em; color: var(--muted-2);
+}
+.lang-toggle button {
+  appearance: none; -webkit-appearance: none;
+  border: none; background: transparent; padding: 2px 6px; margin: 0;
+  color: var(--muted-2); cursor: pointer; font: inherit; text-transform: lowercase;
+  transition: color 160ms ease; border-radius: 3px;
+}
+.lang-toggle button:hover { color: var(--ink-soft); }
+.lang-toggle button.active { color: var(--ink); }
+.lang-toggle .sep { color: var(--muted-2); user-select: none; opacity: 0.6; }
 
-        .job-content li:before {
-            content: "•";
-            color: #666;
-            margin-right: 8px;
-        }
-
-        .job-period {
-            text-align: right;
-            font-size: 14px;
-            color: #666;
-            white-space: nowrap;
-        }
-
-
-
-        .clients {
-            margin-top: 30px;
-            padding-top: 30px;
-            border-top: 1px solid #e9ecef;
-        }
-
-        .clients h4 {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-
-        .clients p {
-            font-size: 15px;
-            line-height: 1.6;
-            color: #666;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-top: 20px;
-        }
-
-        .skill-category h4 {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-
-        .skill-category ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .skill-category li {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 8px;
-            position: relative;
-            padding-left: 12px;
-        }
-
-        .skill-category li:before {
-            content: "·";
-            position: absolute;
-            left: 0;
-            color: #999;
-        }
-
-        .education-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-        }
-
-        .education-item h4 {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        .education-item p {
-            font-size: 14px;
-            color: #666;
-        }
-
-        .tools {
-            font-size: 15px;
-            line-height: 1.6;
-            color: #666;
-        }
-
-        .footer {
-            padding: 40px 60px;
-            background: #f8f9fa;
-            text-align: center;
-        }
-
-        .contact-info {
-            font-size: 16px;
-            color: #666;
-            margin-bottom: 20px;
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-bottom: 15px;
-        }
-
-        .contact-links a {
-            color: #333;
-            text-decoration: none;
-            font-weight: 600;
-            padding: 8px 12px;
-            border-radius: 6px;
-            transition: all 0.2s;
-        }
-
-        .contact-links a:hover {
-            background: #f0f0f0;
-            color: #000;
-        }
-
-
-
-        @media (max-width: 768px) {
-            .container {
-                margin: 0;
-            }
-            
-            .header, .section, .footer {
-                padding: 30px 20px;
-            }
-            
-            .job {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-            
-            .job-period {
-                text-align: left;
-            }
-            
-            .skills-grid, .education-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-            
-            .contact-links {
-                flex-direction: column;
-                align-items: center;
-                gap: 15px;
-            }
-        }
-    </style>
+@media (max-width: 640px) {
+  .page { padding: 64px 22px 96px; }
+}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="header">
-            <h1>Saveliy Bobov, 36 years old</h1>
-            <div class="title">Creative Director & Product Lead Designer</div>
-            <div class="intro">
-                Creative Director with 16+ years of product experience, creating user-centered solutions for 75+ million clients of a fintech company with a 20-year history. My goal is to find elegant, visually expressive, and intuitively convenient solutions based on brand strategy. I build and develop design teams, serve as a lecturer and mentor for young designers.
-            </div>
-        </header>
+  <main class="page">
 
-        <section class="section">
-            <h2 class="section-title">Product Experience</h2>
-            
-            <div class="job">
-                <div class="job-content">
-                    <h3>Creative Director</h3>
-                    <div class="company">YooMoney</div>
-                    <div class="description">B2C Banking applications for 75+ million clients</div>
-                    <ul>
-                        <li>Relaunched B2C visual language. Creation and testing of hypotheses for product growth: Together with the product team, formulated and tested hypotheses for current features and new products within the new strategy.</li>
-                        <li>Close collaboration with PO, UX researchers, and technical leads: Built effective cross-functional collaboration to synchronize goals and tasks, from concepts to MVP implementation.</li>
-                        <li>Developed and visualized product ideas, ensuring their alignment at all levels.</li>
-                        <li>Usability testing: hypotheses, concept prototypes, usability testing sessions.</li>
-                        <li>Mentorship and work on competency matrix in the design department.</li>
-                    </ul>
-                </div>
-                <div class="job-period">2022 - Present</div>
-            </div>
+    <section class="hero rise rise-1">
+      <div>
+        <h1 class="hero-name" data-i18n="name">Savelii Bobov</h1>
+        <div class="hero-role" data-i18n="role">Creative Director &amp; Product Designer</div>
+      </div>
+    </section>
 
-            <div class="job">
-                <div class="job-content">
-                    <h3>B2C Lead Product Designer </h3>
-                    <div class="company">Yandex</div>
-                    <ul>
-                        <li>Designed partner payment projects for X5 Group, Stoloto, Webbankir, BKS. Created and conceptualized exclusive products for YuMoney and CD Project Red (Witcher, Cyberpunk 2077 games).</li>
-                        <li>User research and work with stakeholders and partners.</li>
-                        <li>Visual concepts for all digital products of partners and concept approval.</li>
-                        <li>Creating projects with NSPK within the framework of payment standards implementation.</li>
-                        <li>Hiring and developing new designers.</li>
-                    </ul>
-                </div>
-                <div class="job-period">2020-2022</div>
-            </div>
+    <section class="rise rise-2" style="margin-top: 32px;">
+      <p class="hero-statement" data-i18n-html="statement" style="font-size: 32px;">
+        Creative Director with <span class="em-serif">16+ years</span> of product experience, crafting
+        user-centered solutions for <a href="https://yoomoney.ru/" target="_blank" rel="noopener" class="link-accent">75 million clients</a> of a fintech with
+        a 20-year history. I <span class="em-serif">care deeply</span> about elegant, visually expressive,
+        intuitively convenient design rooted in brand strategy.
+      </p>
+      <div class="hero-meta">
+        <a href="https://t.me/saveliy" class="hero-pill"><span class="dot"></span><span data-i18n="pill-tg">Telegram</span></a>
+        <a href="mailto:hello@sava.work" class="hero-pill"><span data-i18n="pill-email">Email</span></a>
+        <a href="https://ru.linkedin.com/in/savawork" class="hero-pill"><span data-i18n="pill-linkedin">LinkedIn</span></a>
+        <a href="hello.html" class="hero-pill"><span data-i18n="pill-hello">sava.work/hello</span></a>
+      </div>
+    </section>
 
-            <div class="job">
-                <div class="job-content">
-                    <h3>Lead Mobile Product Designer</h3>
-                    <div class="company">Yandex Money</div>
-                    <div class="description">B2B / B2C Banking systems for 60+ million clients</div>
-                    <ul>
-                        <li>Developed and implemented modular architecture for all main Wallet app functions such as "Transfers and Payments," "Cards," "Authorization," ensuring scalability and interface consistency within the mobile product redesign concept.</li>
-                        <li>Work with product team, UX researchers, and technical leads.</li>
-                        <li>Concept validation through user testing practices.</li>
-                        <li>Formulated and defended design concept for applications.</li>
-                        <li>Created and developed a 5-person app design team, working on growth and mentorship within the team.</li>
-                    </ul>
-                </div>
-                <div class="job-period">2018–2020</div>
-            </div>
+    <section class="rise rise-3 stack-xl" id="projects">
+      <h3 class="section-label" data-i18n="h-projects">Projects</h3>
+      <div class="list">
+        <a href="#" class="list-row">
+          <div class="lr-title" data-i18n="p1-t">YooMoney B2C</div>
+          <div class="lr-sub" data-i18n="p1-s">Visual language relaunch for 75M users.</div>
+        </a>
+        <a href="#" class="list-row">
+          <div class="lr-title" data-i18n="p2-t">Witcher × YooMoney</div>
+          <div class="lr-sub" data-i18n="p2-s">Exclusive payment card with CD Projekt Red.</div>
+        </a>
+        <a href="#" class="list-row">
+          <div class="lr-title" data-i18n="p3-t">Wallet Modular OS</div>
+          <div class="lr-sub" data-i18n="p3-s">Scalable iOS / Android architecture, 60M clients.</div>
+        </a>
+        <a href="#" class="list-row">
+          <div class="lr-title" data-i18n="p4-t">Mi Fitness — Cyrillic</div>
+          <div class="lr-sub" data-i18n="p4-s">Typography &amp; component adaptation, Xiaomi.</div>
+        </a>
+      </div>
+    </section>
 
-            <div class="job">
-                <div class="job-content">
-                    <h3>Senior Product Designer</h3>
-                    <div class="company">Yandex Money</div>
-                    <ul>
-                        <li>Developed a global payment system for the Yandex ecosystem with the team</li>
-                        <li>User interface design.</li>
-                        <li>Analytics work and task prioritization: Used metrics and conversion data to determine priorities, enabling targeted feature development management and accelerating key business indicators growth and improving UX consistency.</li>
-                        <li>Design system creation and scaling: iOS, Android</li>
-                        <li>Contribution to Yandex development and design system: Yandex BEM, Whitepaper</li>
-                    </ul>
-                </div>
-                <div class="job-period">2015–2018</div>
-            </div>
+    <section class="rise rise-4 stack-xl">
+      <h3 class="section-label" data-i18n="h-exp">Experience</h3>
+      <div class="list">
+        <div class="list-row" style="cursor: default;">
+          <div class="lr-title" data-i18n="e1-t">Creative Director — YooMoney</div>
+          <div class="lr-meta" data-i18n="e1-d">2022 — Present</div>
+        </div>
+        <div class="list-row" style="cursor: default;">
+          <div class="lr-title" data-i18n="e2-t">B2C Lead Product Designer — Yandex</div>
+          <div class="lr-meta">2020 — 2022</div>
+        </div>
+        <div class="list-row" style="cursor: default;">
+          <div class="lr-title" data-i18n="e3-t">Lead Mobile Product Designer — Yandex Money</div>
+          <div class="lr-meta">2018 — 2020</div>
+        </div>
+        <div class="list-row" style="cursor: default;">
+          <div class="lr-title" data-i18n="e4-t">Senior Product Designer — Yandex Money</div>
+          <div class="lr-meta">2015 — 2018</div>
+        </div>
+        <div class="list-row" style="cursor: default;">
+          <div class="lr-title" data-i18n="e5-t">Sr. UX Consultant — Xiaomi Global</div>
+          <div class="lr-meta">2014 — 2015</div>
+        </div>
+      </div>
+    </section>
 
-            <div class="job">
-                <div class="job-content">
-                    <h3>Senior User Experience Consultant</h3>
-                    <div class="company">Xiaomi Global</div>
-                    <div class="description">Chinese technology and digital products manufacturer</div>
-                    <ul>
-                        <li>Consulted the main interface team on UI adaptation processes for the Russian market.</li>
-                        <li>Mi Fitness language module concept</li>
-                        <li>MIUI typography and component adaptation for Cyrillic</li>
-                        <li>Revision of marketing strategy in Russia</li>
-                    </ul>
-                </div>
-                <div class="job-period">2014–2015</div>
-            </div>
-        </section>
+    <section class="rise rise-5 stack-xl">
+      <div style="display:flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 12px;">
+        <h3 class="section-label" data-i18n="h-vibe" style="margin:0;">Vibe-coded</h3>
+        <a href="https://www.slapdash.page/" target="_blank" rel="noopener" class="link-accent" style="font-size: 13px;" data-i18n="vibe-all">All projects ↗</a>
+      </div>
+      <div class="list">
+        <a href="https://v0-material-tool.vercel.app/" target="_blank" rel="noopener" class="list-row">
+          <div class="lr-title">Polya</div>
+          <div class="lr-sub" data-i18n="v1-d">3D tool for models &amp; SVGs · v1.1</div>
+        </a>
+        <a href="https://v0-svg-to-3-d-batch-i4.vercel.app/" target="_blank" rel="noopener" class="list-row">
+          <div class="lr-title">Vectry</div>
+          <div class="lr-sub" data-i18n="v2-d">Bulk vector → 3D converter · v1.3</div>
+        </a>
+        <a href="https://v0-patterna-six.vercel.app/" target="_blank" rel="noopener" class="list-row">
+          <div class="lr-title">Paterna</div>
+          <div class="lr-sub" data-i18n="v3-d">Generative pattern tool · Beta</div>
+        </a>
+        <a href="https://v0-framus.vercel.app/" target="_blank" rel="noopener" class="list-row">
+          <div class="lr-title">Framus</div>
+          <div class="lr-sub" data-i18n="v4-d">Bulk phone-frame screenshots · v2</div>
+        </a>
+        <a href="https://v0-colorama.vercel.app/" target="_blank" rel="noopener" class="list-row">
+          <div class="lr-title">Colorama</div>
+          <div class="lr-sub" data-i18n="v5-d">Batch LUT image editor · In progress</div>
+        </a>
+      </div>
+    </section>
 
-        <section class="section">
-            <h2 class="section-title">Agency Work</h2>
-            
-            <div class="job">
-                <div class="job-content">
-                    <h3>Senior Creative Director, Graphic Designer</h3>
-                    <div class="company">Casper</div>
-                    <div class="description">Outsourcing design agency</div>
-                    <ul>
-                        <li>Design tenders and outsourcing for government, museums, and design studios</li>
-                        <li>Interactive product concepts for Erarta Museum, Hermitage</li>
-                        <li>Web portals</li>
-                        <li>Print materials</li>
-                    </ul>
-                </div>
-                <div class="job-period">2013–2015</div>
-            </div>
+    <footer class="footer-note">
+      <span data-i18n="foot-loc">St. Petersburg, Russia</span>
+      <span style="display:inline-flex; align-items:center; gap: 16px;">
+        <a href="hello.html" style="border: none; color: var(--muted);">/hello</a>
+        <span class="lang-toggle" id="langToggle" role="tablist" aria-label="Language">
+          <button type="button" data-lang="en" class="active">en</button>
+          <span class="sep">/</span>
+          <button type="button" data-lang="ru">ru</button>
+        </span>
+      </span>
+    </footer>
 
-            <div class="job">
-                <div class="job-content">
-                    <h3>Graphic Designer, UX Designer</h3>
-                    <div class="company">The Phantoms</div>
-                    <div class="description">Top 10 design studios in St. Petersburg</div>
-                    <ul>
-                        <li>Worked in a small design studio with clients and collaborated with agencies such as Oblako, Shishki.</li>
-                        <li>User interface design concepts</li>
-                        <li>Branding, graphic design</li>
-                        <li>Logos, icon design</li>
-                    </ul>
-                </div>
-                <div class="job-period">2008–2012</div>
-            </div>
+  </main>
 
-            <div class="clients">
-                <h4>Project clients included:</h4>
-                <p>Yota · Xiaomi · Morgan Stanley · Yulmart · Erarta Museum · Hermitage · Gazprom Neft · Pizza Hut · Yandex · Bork · Casio · Sportmaster · Petrovich · Ministry of Justice of the Russian Federation · Beefree · Obit Group</p>
-            </div>
-        </section>
+  <script>
+    const I18N = {
+      en: {
+        "name": "Savelii Bobov",
+        "role": "Creative Director & Product Designer",
+        "statement": `Creative Director with <span class="em-serif">16+ years</span> of product experience, crafting user-centered solutions for <a href="https://yoomoney.ru/" target="_blank" rel="noopener" class="link-accent">75 million clients</a> of a fintech with a 20-year history. I <span class="em-serif">care deeply</span> about elegant, visually expressive, intuitively convenient design rooted in brand strategy.`,
+        "pill-tg": "Telegram", "pill-email": "Email", "pill-linkedin": "LinkedIn", "pill-hello": "sava.work/hello",
+        "h-projects": "Projects",
+        "p1-t": "YooMoney B2C", "p1-s": "Visual language relaunch for 75M users.",
+        "p2-t": "Witcher × YooMoney", "p2-s": "Exclusive payment card with CD Projekt Red.",
+        "p3-t": "Wallet Modular OS", "p3-s": "Scalable iOS / Android architecture, 60M clients.",
+        "p4-t": "Mi Fitness — Cyrillic", "p4-s": "Typography & component adaptation, Xiaomi.",
+        "h-exp": "Experience",
+        "e1-t": "Creative Director — YooMoney", "e1-d": "2022 — Present",
+        "e2-t": "B2C Lead Product Designer — Yandex",
+        "e3-t": "Lead Mobile Product Designer — Yandex Money",
+        "e4-t": "Senior Product Designer — Yandex Money",
+        "e5-t": "Sr. UX Consultant — Xiaomi Global",
+        "h-vibe": "Vibe-coded", "vibe-all": "All projects ↗",
+        "v1-d": "3D tool for models & SVGs · v1.1",
+        "v2-d": "Bulk vector → 3D converter · v1.3",
+        "v3-d": "Generative pattern tool · Beta",
+        "v4-d": "Bulk phone-frame screenshots · v2",
+        "v5-d": "Batch LUT image editor · In progress",
+        "foot-loc": "St. Petersburg, Russia",
+      },
+      ru: {
+        "name": "Савелий Бобов",
+        "role": "Креативный директор и продуктовый дизайнер",
+        "statement": `Креативный директор с опытом <span class="em-serif">16+ лет</span> в продуктовом дизайне — проектирую решения, ориентированные на пользователя, для <a href="https://yoomoney.ru/" target="_blank" rel="noopener" class="link-accent">75 миллионов клиентов</a> финтех-компании с двадцатилетней историей. Мне <span class="em-serif">важна</span> элегантность, визуальная выразительность и удобство, основанные на бренд-стратегии.`,
+        "pill-tg": "Телеграм", "pill-email": "Почта", "pill-linkedin": "LinkedIn", "pill-hello": "sava.work/hello",
+        "h-projects": "Проекты",
+        "p1-t": "YooMoney B2C", "p1-s": "Перезапуск визуального языка для 75 млн клиентов.",
+        "p2-t": "Ведьмак × YooMoney", "p2-s": "Эксклюзивная карта с CD Projekt Red.",
+        "p3-t": "Модульный кошелёк", "p3-s": "Масштабируемая архитектура iOS / Android, 60 млн клиентов.",
+        "p4-t": "Mi Fitness — кириллица", "p4-s": "Адаптация типографики и компонентов, Xiaomi.",
+        "h-exp": "Опыт работы",
+        "e1-t": "Креативный директор — YooMoney", "e1-d": "2022 — наст. время",
+        "e2-t": "B2C Lead Product Designer — Яндекс",
+        "e3-t": "Lead Mobile Product Designer — Яндекс.Деньги",
+        "e4-t": "Senior Product Designer — Яндекс.Деньги",
+        "e5-t": "Sr. UX-консультант — Xiaomi Global",
+        "h-vibe": "Вайб-код", "vibe-all": "Все проекты ↗",
+        "v1-d": "3D-инструмент для моделей и SVG · v1.1",
+        "v2-d": "Массовая конвертация векторов в 3D · v1.3",
+        "v3-d": "Генератор паттернов · Beta",
+        "v4-d": "Рамки телефонов для скриншотов · v2",
+        "v5-d": "Пакетный LUT-редактор · В разработке",
+        "foot-loc": "Санкт-Петербург, Россия",
+      }
+    };
 
-        <section class="section">
-            <h2 class="section-title">Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h4>Hard Skills</h4>
-                    <ul>
-                        <li>User research</li>
-                        <li>Interviews</li>
-                        <li>Information architecture</li>
-                        <li>Wireframing</li>
-                        <li>Prototyping</li>
-                        <li>Mobile/web UI</li>
-                        <li>Interaction design</li>
-                        <li>Animation</li>
-                        <li>Usability testing</li>
-                        <li>Typography</li>
-                        <li>Identity design</li>
-                        <li>Icon design</li>
-                        <li>UI kits</li>
-                        <li>Design systems</li>
-                        <li>Analytics</li>
-                        <li>Frontend development</li>
-                        <li>Swift UI</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h4>Soft Skills</h4>
-                    <ul>
-                        <li>Critical thinking</li>
-                        <li>Management</li>
-                        <li>Teamwork</li>
-                        <li>User empathy</li>
-                        <li>Product strategy</li>
-                        <li>Communication</li>
-                    </ul>
-                    <p style="margin-top: 20px; font-size: 14px; color: #666;">
-                        • Mentor for designers at Yandex Practicum<br>
-                        • Art director for special projects for several St. Petersburg agencies
-                    </p>
-                </div>
-            </div>
-        </section>
+    function setLang(lang) {
+      const dict = I18N[lang] || I18N.en;
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const k = el.getAttribute('data-i18n');
+        if (dict[k] != null) el.textContent = dict[k];
+      });
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const k = el.getAttribute('data-i18n-html');
+        if (dict[k] != null) el.innerHTML = dict[k];
+      });
+      document.querySelectorAll('#langToggle button').forEach(b => {
+        b.classList.toggle('active', b.dataset.lang === lang);
+      });
+      localStorage.setItem('savawork.lang', lang);
+    }
 
-        <section class="section">
-            <h2 class="section-title">Tools</h2>
-            <div class="tools">
-                <strong>Design & Prototyping:</strong> Figma · Sketch · Protopie · Principle<br>
-                <strong>Creative Suite:</strong> After Effects · Photoshop · Illustrator · InDesign<br>
-                <strong>Project Management:</strong> Jira · Keynote<br>
-                <strong>Specialized:</strong> Game development tools / 3D<br><br>
-                <em>And much more - these are just tools, after all</em>
-            </div>
-        </section>
+    document.getElementById('langToggle').addEventListener('click', (e) => {
+      const b = e.target.closest('button'); if (!b) return;
+      setLang(b.dataset.lang);
+    });
 
-        <section class="section">
-            <h2 class="section-title">Education and Awards</h2>
-            <div class="education-grid">
-                <div>
-                    <div class="education-item">
-                        <h4>St. Petersburg Academy of Arts and Industry, Stieglitz</h4>
-                        <p>(Arts and Design)</p>
-                    </div>
-                    <div class="education-item" style="margin-top: 20px;">
-                        <h4>IMOP Polytech</h4>
-                        <p>(Interaction Design)</p>
-                    </div>
-                    <div class="education-item" style="margin-top: 20px;">
-                        <h4>Yandex Design School</h4>
-                        <p>(Product Design)</p>
-                    </div>
-                </div>
-                <div>
-                    <div class="education-item">
-                        <h4>Professional memberships:</h4>
-                        <p>Union of Designers of Russia<br>
-                        Union of Artists of Russia<br>
-                        Union of Artists of Moscow</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+    const _saved = localStorage.getItem('savawork.lang');
+    setLang(_saved === 'ru' ? 'ru' : 'en');
+  </script>
 
-        <footer class="footer">
-            <div class="contact-links">
-                <a href="https://t.me/saveliy" target="_blank">Telegram</a>
-                <a href="https://ru.linkedin.com/in/savawork" target="_blank">LinkedIn</a>
-                <a href="https://www.instagram.com/dandycolor/" target="_blank">Instagram</a>
-                <a href="https://unsplash.com/@dandycolor" target="_blank">Unsplash</a>
-            </div>
-            <div class="contact-info">
-                Living and working in St. Petersburg, Russia
-            </div>
-        </footer>
-    </div>
-</body>
-</html>
+</body></html>
