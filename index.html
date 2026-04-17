@@ -93,8 +93,8 @@ p:last-child { margin-bottom: 0; }
   line-height: 1.35; letter-spacing: -0.02em;
   color: var(--ink); font-weight: 500; text-wrap: pretty; max-width: 640px;
 }
-.hero-statement a { font-weight: 500; color: var(--ink); border-bottom: 2px solid var(--accent); }
-.hero-statement a:hover { color: var(--accent); }
+.hero-statement a { font-weight: 500; color: var(--ink); border-bottom: 2px solid var(--ink); }
+.hero-statement a:hover { color: var(--ink); border-bottom-color: var(--accent); }
 
 .hero-meta { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 8px 6px; font-size: 13px; }
 .hero-pill {
@@ -128,7 +128,7 @@ p:last-child { margin-bottom: 0; }
 
 @media (max-width: 640px) {
   .page { padding: 64px 22px 96px; }
-  .hero-statement { font-size: 19px !important; letter-spacing: -0.015em; }
+  .hero-statement { font-size: 25px !important; letter-spacing: -0.015em; }
 }
   </style>
 </head>
@@ -143,7 +143,7 @@ p:last-child { margin-bottom: 0; }
     </section>
 
     <section class="rise rise-2" style="margin-top: 32px;">
-      <p class="hero-statement" data-i18n-html="statement" style="font-size: 32px;">
+      <p class="hero-statement" data-i18n-html="statement" style="font-size: 42px;">
         Creative Director with <span class="em-serif">16+ years</span> of product experience, crafting
         user-centered solutions for <a href="https://yoomoney.ru/" target="_blank" rel="noopener" class="link-accent">75 million clients</a> of a fintech with
         a 20-year history. I <span class="em-serif">care deeply</span> about elegant, visually expressive,
